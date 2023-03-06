@@ -115,10 +115,11 @@ app.use(express.json());
 //   }
 // })
 
-app.post('/txn_result', (req, res) => {
-  console.log('req: ', req)
-  console.log('query: ', req.query)
-  console.log('body: ', req.body)
+app.post('/txn_result', async (req, res) => {
+  const {sessionId, metaData, responseText} = req.body;
+  console.log(sessionId)
+  console.log(metaData)
+  console.log(responseText)
 
   res.sendStatus(200)
 })
