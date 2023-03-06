@@ -113,7 +113,7 @@ app.get('/', async (req, res) => {
   }
 })
 
-app.post('/', (req, res) => {
+app.post('/txn_result', (req, res) => {
   console.log('req: ', req)
   console.log('query: ', req.query)
   console.log('body: ', req.body)
