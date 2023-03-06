@@ -113,6 +113,10 @@ app.get('/', async (req, res) => {
   }
 })
 
+app.post('/', (req, res) => {
+  console.log(req)
+})
+
 app.listen(port, async () => {
   const token = await getAppToken()
   console.log(`App token: ${token}`)
