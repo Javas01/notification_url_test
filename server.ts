@@ -114,7 +114,8 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  console.log(req)
+  console.log('query: ', req.query)
+  console.log('body: ', req.body)
 })
 
 app.listen(port, async () => {
