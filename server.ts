@@ -86,6 +86,7 @@ const refreshToken = async () => {
 }
 
 app.get('/', async (req, res) => {
+  console.log(req.query)
   const { sessionId } = req.query
   console.log('session ID: ', sessionId)
 
