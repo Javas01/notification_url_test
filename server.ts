@@ -1,10 +1,11 @@
 import express from 'express'
 import queryString from 'query-string'
+import fetch from 'node-fetch';
 
 import { RefreshTokenResponse } from './serverTypes'
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 8080
 
 let application_token: string = ''
 let refresh_token: string = ''
@@ -99,7 +100,8 @@ app.get('/', async (req, res) => {
         }
       }
     )
-    const data = await response.json()
+    const data: any = await response.json()
+    console.log('meta data', data)
     console.log('meta data', data.metaData)
 
     res.sendStatus(200)
