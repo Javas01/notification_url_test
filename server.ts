@@ -116,6 +116,8 @@ app.get('/', async (req, res) => {
 app.post('/', (req, res) => {
   console.log('query: ', req.query)
   console.log('body: ', req.body)
+
+  res.sendStatus(200)
 })
 
 app.listen(port, async () => {
