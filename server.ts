@@ -85,33 +85,35 @@ const refreshToken = async () => {
   }
 }
 
-app.get('/', async (req, res) => {
-  console.log(req.query)
-  const { sessionId } = req.query
-  console.log('session ID: ', sessionId)
+app.use(express.json());
 
-  try {
-    const response = await fetch(
-      `https://uat.windcave.com/api/v1/sessions/${sessionId}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${process.env.TOKEN}`
-        }
-      }
-    )
-    const data: any = await response.json()
-    console.log('meta data', data)
-    console.log('meta data', data.metaData)
+// app.get('/', async (req, res) => {
+//   console.log(req.query)
+//   const { sessionId } = req.query
+//   console.log('session ID: ', sessionId)
 
-    res.sendStatus(200)
-  } catch (error) {
-    console.log(error)
+//   try {
+//     const response = await fetch(
+//       `https://uat.windcave.com/api/v1/sessions/${sessionId}`,
+//       {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           Authorization: `Basic ${process.env.TOKEN}`
+//         }
+//       }
+//     )
+//     const data: any = await response.json()
+//     console.log('meta data', data)
+//     console.log('meta data', data.metaData)
 
-    res.sendStatus(200)
-  }
-})
+//     res.sendStatus(200)
+//   } catch (error) {
+//     console.log(error)
+
+//     res.sendStatus(200)
+//   }
+// })
 
 app.post('/txn_result', (req, res) => {
   console.log('req: ', req)
