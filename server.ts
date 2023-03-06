@@ -116,10 +116,11 @@ app.use(express.json());
 // })
 
 app.post('/txn_result', async (req, res) => {
-  const {sessionId, metaData, responseText} = req.body;
+  const {sessionId, metaData, responseText, ...data} = req.body;
   console.log(sessionId)
   console.log(metaData)
   console.log(responseText)
+  console.log(data)
 
   res.sendStatus(200)
 })
